@@ -7,6 +7,6 @@ $routes = array(
 				array(	'url' 			=> '/^$/', 
 						'controller' 	=> 'login', 
 					  	'action' 		=> 'index', 
-					  	'layout' 		=> 'ajax'
+					  	'layout' 		=> 'default'
 				)
 		  );
