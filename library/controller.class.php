@@ -64,6 +64,23 @@ class Controller{
 	}
 	
 	/**
+	 * Redirect
+	 * @param String $url
+	 * @return void
+	 */
+	function redirect($url, $msg){
+		switch($msg){
+			case 'error': 	$url = "Location: ".BASE_PATH.(empty($url) ? '' : $url.DS).'?q=error';
+							break;
+			case 'success':	$url = "Location: ".BASE_PATH.(empty($url) ? '' : $url.DS).'?q=success';
+							break;
+			default:		$url = "Location: ".BASE_PATH.(empty($url) ? '' : $url.DS);
+		}
+		header($url);
+		exit;
+	}
+	
+	/**
 	 * Desctructor
 	 * @return void
 	 */

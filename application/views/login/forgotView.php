@@ -8,20 +8,16 @@
 			<div class="hr"></div>
 			<div class="ribbon">
 				<div class="wrapAround" style="background-position: 0pt -104px;"></div>
-				<div class="tab" style="padding-top: 17px; color: #FFF;">Login here</div>
+				<div class="tab" style="padding-top: 17px; color: #FFF;">Enter your email</div>
 			</div>
 			<?php echo $html->msg($_GET); ?>
 			<div style="margin: 50px 0px 0px 180px;">
-				<form id="form-login" name="form-login" action="<?php echo BASE_PATH.'submit'.DS;?>" method="post">
+				<form id="form-login" name="form-login" action="<?php echo BASE_PATH.'forgot'.DS.'submit'.DS;?>" method="post">
+					<fieldset>
 						<div>
 							<label>Email:</label>
 							<br/>
-							<input type="text" class="textInput" value="" name="email"/> 
-						</div>
-						<div>
-							<label>Password:</label>
-							<br/>
-							<input type="text" class="textInput" value="" name="passwd"/>
+							<input type="text" class="textInput" value=""/>
 						</div>
 						<div style="margin-left: 85px;">
 							<button class="btn" type="submit">
@@ -30,6 +26,7 @@
 								</span>
 							</button>
 						</div>
+					</fieldset>
 				</form>
 			</div>
 		</div>
@@ -39,10 +36,10 @@
 				<div class="sideNavBox-1">
 					<div class="sideNavBox-2">
 						<ul class="sideNav">
-							<li class="page_item current_page_item">
+							<li class="page_item">
 								<a href="<?php echo BASE_PATH;?>">Login page</a>
 							</li>
-							<li class="page_item">
+							<li class="page_item current_page_item">
 								<a href="<?php echo BASE_PATH.'forgot'.DS;?>">Forgot password</a>
 							</li>
 							<li class="page_item">

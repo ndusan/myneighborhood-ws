@@ -8,28 +8,40 @@
 			<div class="hr"></div>
 			<div class="ribbon">
 				<div class="wrapAround" style="background-position: 0pt -104px;"></div>
-				<div class="tab" style="padding-top: 17px; color: #FFF;">Login here</div>
+				<div class="tab" style="padding-top: 17px; color: #FFF;">Fill in all fields</div>
 			</div>
 			<?php echo $html->msg($_GET); ?>
 			<div style="margin: 50px 0px 0px 180px;">
-				<form id="form-login" name="form-login" action="<?php echo BASE_PATH.'submit'.DS;?>" method="post">
+				<form id="form-login" name="form-login" action="<?php echo BASE_PATH.'register'.DS.'submit'.DS;?>" method="post">
+					<fieldset>
+						<div>
+							<label>Name:</label>
+							<br/>
+							<input type="text" class="textInput" value=""/> 
+						</div>
+						<div>
+							<label>Surname:</label>
+							<br/>
+							<input type="text" class="textInput" value=""/> 
+						</div>
 						<div>
 							<label>Email:</label>
 							<br/>
-							<input type="text" class="textInput" value="" name="email"/> 
+							<input type="text" class="textInput" value=""/> 
 						</div>
 						<div>
 							<label>Password:</label>
 							<br/>
-							<input type="text" class="textInput" value="" name="passwd"/>
+							<input type="text" class="textInput" value=""/>
 						</div>
-						<div style="margin-left: 85px;">
+						<div style="margin-left: 68px;">
 							<button class="btn" type="submit">
 								<span style="margin-top: -1px;">
-									Login
+									Register
 								</span>
 							</button>
 						</div>
+					</fieldset>
 				</form>
 			</div>
 		</div>
@@ -39,13 +51,13 @@
 				<div class="sideNavBox-1">
 					<div class="sideNavBox-2">
 						<ul class="sideNav">
-							<li class="page_item current_page_item">
+							<li class="page_item">
 								<a href="<?php echo BASE_PATH;?>">Login page</a>
 							</li>
 							<li class="page_item">
 								<a href="<?php echo BASE_PATH.'forgot'.DS;?>">Forgot password</a>
 							</li>
-							<li class="page_item">
+							<li class="page_item current_page_item">
 								<a href="<?php echo BASE_PATH.'register'.DS;?>">Register for free</a>
 							</li>
 						</ul>

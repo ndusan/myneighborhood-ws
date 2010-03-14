@@ -72,8 +72,8 @@ class Template{
 		
 		if(file_exists(LAYOUT_PATH.$this->_layout.'Layout.php'))
 			include (LAYOUT_PATH.$this->_layout.'Layout.php');
-		else
-			include (LAYOUT_PATH.DS.'defaultLayout.php');
+		else 
+			include (LAYOUT_PATH.'defaultLayout.php');
     }
     
 }

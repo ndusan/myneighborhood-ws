@@ -50,4 +50,26 @@ class HTML{
 		$data = "<link href='".CSS_PATH.$fileName.".css' rel='stylesheet' type='text/css'/>\n";
 		return $data;
 	}
+	
+	/**
+	 * Display message
+	 * @param String $text
+	 * @return String
+	 */
+	function msg($text){
+		if(!isset($text['q']) || empty($text['q'])) return false;
+		$txt = "";
+		switch($text['q']){
+			//Error
+			case 'error':
+						$txt = "<div class='j_msg_error'>".ERROR_MSG."</div>";
+						break;
+			//Success
+			case 'success':
+						$txt = "<div class='j_msg_success'>".SUCCESS_MSG."</div>";
+						break;
+			default:	break;
+		}
+		return $txt;
+	}
 }
