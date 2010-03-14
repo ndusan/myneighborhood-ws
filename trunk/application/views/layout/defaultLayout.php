@@ -47,7 +47,9 @@
 						</div>
 					</div>
 					<div id="HeaderRight"></div>
-					<div id="Logo"></div>
+					<div id="Logo">
+						<a href="<?php echo BASE_PATH;?>" title="" ></a>
+					</div>
 					<div class="clear"></div>
 				</div>
 				<div class="pageMain">
