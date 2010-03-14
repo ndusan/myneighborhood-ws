@@ -5,6 +5,10 @@ define('SITE', 'http://my-ws');//http://localhost
 define('APP_ROOT', '');
 define('IN_DEV', true);
 
+//Messages
+define('SUCCESS_MSG', 'Success');
+define('ERROR_MSG', 'Error');
+
 //DB params
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'salesprogram');
