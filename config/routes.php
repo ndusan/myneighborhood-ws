@@ -4,7 +4,7 @@
  */
 $routes = array(
 				//Login page
-				array(	'url' 			=> '/^$/', 
+				array(	'url' 			=> '/^\/?$/', 
 						'controller' 	=> 'login', 
 					  	'action' 		=> 'index', 
 					  	'layout' 		=> 'default'
@@ -15,7 +15,7 @@ $routes = array(
 					  	'layout' 		=> 'default'
 				),
 				//Forgot password
-				array(	'url' 			=> '/^forgot\/$/', 
+				array(	'url' 			=> '/^forgot\/?$/', 
 						'controller' 	=> 'login', 
 					  	'action' 		=> 'forgot', 
 					  	'layout' 		=> 'default'
@@ -26,7 +26,7 @@ $routes = array(
 					  	'layout' 		=> 'default'
 				),
 				//Register
-				array(	'url' 			=> '/^register\/$/', 
+				array(	'url' 			=> '/^register\/?$/', 
 						'controller' 	=> 'login', 
 					  	'action' 		=> 'register', 
 					  	'layout' 		=> 'default'
@@ -35,5 +35,35 @@ $routes = array(
 						'controller' 	=> 'login', 
 					  	'action' 		=> 'submit_register', 
 					  	'layout' 		=> 'default'
+				),
+				//Admin panel
+				array(	'url' 			=> '/^admin\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'index', 
+					  	'layout' 		=> 'admin'
+				),
+				//Admin panel - products
+				array(	'url' 			=> '/^admin\/products\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'products', 
+					  	'layout' 		=> 'admin'
+				),
+				//Admin panel - orders
+				array(	'url' 			=> '/^admin\/orders\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'orders', 
+					  	'layout' 		=> 'admin'
+				),
+				//Admin panel - settings
+				array(	'url' 			=> '/^admin\/settings\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'settings', 
+					  	'layout' 		=> 'admin'
+				),
+				//Admin panel - suggestions
+				array(	'url' 			=> '/^admin\/suggestions\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'suggestions', 
+					  	'layout' 		=> 'admin'
 				),
 		  );
