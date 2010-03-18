@@ -17,22 +17,22 @@
 						<div>
 							<label>Name:</label>
 							<br/>
-							<input type="text" class="textInput" value=""/> 
+							<input type="text" class="textInput" value="" name="firstname"/> 
 						</div>
 						<div>
 							<label>Surname:</label>
 							<br/>
-							<input type="text" class="textInput" value=""/> 
+							<input type="text" class="textInput" value="" name="lastname"/> 
 						</div>
 						<div>
 							<label>Email:</label>
 							<br/>
-							<input type="text" class="textInput" value=""/> 
+							<input type="text" class="textInput" value="" name="email"/> 
 						</div>
 						<div>
 							<label>Password:</label>
 							<br/>
-							<input type="text" class="textInput" value=""/>
+							<input type="password" class="textInput" value="" name="password"/>
 						</div>
 						<div style="margin-left: 68px;">
 							<button class="btn" type="submit">

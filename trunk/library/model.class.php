@@ -27,4 +27,16 @@ class Model{
 	function getError() {
         return mysql_error($this->_dbHandle);
     }
+    
+    /**
+     * Password generator
+     * @param int $len
+     * @return string
+     */
+    function passwordGenerator($len = 6){
+	    $r = '';
+	    for($i=0; $i<$len; $i++)
+	        $r .= chr(rand(0, 25) + ord('a'));
+	    return $r;
+    }
 }

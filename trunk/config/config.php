@@ -11,7 +11,7 @@ define('ERROR_MSG', 'Error');
 
 //DB params
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'salesprogram');
+define('DB_NAME', 'my-ws');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
