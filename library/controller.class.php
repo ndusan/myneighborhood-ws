@@ -96,4 +96,75 @@ class Controller{
 		$this->renderHTML = 1;
 	}
 	
+	function sendEmail($data){
+		
+		$from = "MIME-Version: 1.0\r\n";
+        $from .= "Content-type: text/html; charset=utf-8\r\n";
+        $from .= "From:Webshop - demo application<noreplay@novakovicdusan.com>\r\n";
+        
+        $subject = "Forgot password generator";
+        $head = "Dear <b>".$data['firstname']." ".$data['lastname']."</b>,";
+        $par = "<br/>On your request we are sending to you new password:<br/><br/>- Email: ".$data['email']."<br/>- Password: ".$data['password']."<br/><br/>If you want to access to webshop page click here: <a href='http://webshop.novakovicdusan.com'>http://webshop.novakovicdusan.com</a><br/><br/>";
+        $sign = "Thank you using our service,<br/><b>Webshop generator</b>";
+        $mis = "<br/>If you received this message by mistake, please delete it.";
+				        
+		//Skelet
+        $msg_body="<html>
+					<head>
+					<title>Webshop demo application</title>
+					</head>
+					<body>
+					<table cellspacing='3' cellpadding='1' border='0' align='center' width='750' style='border: 1px solid #E5EBF2;'>
+                    <tbody>
+                       <tr>
+                        <td style='background: #E5EBF2 none repeat scroll 0% 0%;'>
+                        <a target='_blank' href='http://webshop.novakovicdusan.com' style=' background: #E5EBF2 none repeat scroll 0% 0%; color: rgb(0, 173, 239); font-family: Tahoma,Arial; font-size: 11px;'>http://webshop.novakovicdusan.com</a>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                       <table cellspacing='1' cellpadding='0' border='0' width='100%'>
+                        <tbody>
+                        <tr>
+                        <td width='70%' valign='top' style='padding: 5px; background: rgb(244, 244, 244) none repeat scroll 0% 0%;'>
+                        <div style='padding: 5px; background: rgb(0, 173, 239) none repeat scroll 0% 0%; color: rgb(255, 255, 255); font-weight: bold; font-family: Tahoma,Arial; font-size: 11px;'>
+                        ".$subject."
+                        </div><br/>
+                        <div style='border: 1px solid rgb(204, 204, 204); padding: 2px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; font-size: 11px; margin-bottom: 10px; margin-top: 23px; font-family: Tahoma,Arial;'> 
+                        <div style='padding: 2px; background: rgb(204, 204, 204) none repeat scroll 0% 0%; color: rgb(102, 102, 102); font-weight: normal; font-family: Tahoma,Arial; font-size: 11px;'>
+                        ".$head."
+                        </div>".$par."
+                        </div>
+                        </td>
+                       </tr>
+                     </tbody>
+                     </table>
+                    </td>
+                    </tr>
+                    <tr>
+                <td valign='top' style='padding: 10px; background: #E5EBF2 none repeat scroll 0% 0%; color: rgb(0, 173, 239); font-family: Tahoma,Arial; font-size: 11px;'>
+               ".$sign."
+                    <br/>
+                <table cellspacing='0' cellpadding='0' border='0' width='100%'>
+                      <tbody><tr>
+                        <td style='background: #E5EBF2 none repeat scroll 0% 0%; color: rgb(0, 173, 239); font-weight: normal; font-family: Tahoma,Arial; font-size: 11px;'>
+                        ".$mis."
+                        </td>
+                      </tr>
+                </tbody></table></td>
+              </tr>
+            </tbody></table></body></html>";
+		
+        //Send email
+        mail($data['email'], $subject, $msg_body, $from);
+	}
+	
+	/**
+	 * Check session
+	 * @return void
+	 */
+	function checkSession(){
+		if(!isset($_SESSION['ws-user'])) $this->redirect('', '');
+	}
+	
 }

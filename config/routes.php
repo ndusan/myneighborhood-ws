@@ -12,7 +12,7 @@ $routes = array(
 				array(	'url' 			=> '/^submit\/$/', 
 						'controller' 	=> 'login', 
 					  	'action' 		=> 'submit', 
-					  	'layout' 		=> 'default'
+					  	'layout' 		=> 'empty'
 				),
 				//Forgot password
 				array(	'url' 			=> '/^forgot\/?$/', 
@@ -23,7 +23,7 @@ $routes = array(
 				array(	'url' 			=> '/^forgot\/submit\/$/', 
 						'controller' 	=> 'login', 
 					  	'action' 		=> 'submit_forgot', 
-					  	'layout' 		=> 'default'
+					  	'layout' 		=> 'empty'
 				),
 				//Register
 				array(	'url' 			=> '/^register\/?$/', 
@@ -34,7 +34,7 @@ $routes = array(
 				array(	'url' 			=> '/^register\/submit\/$/', 
 						'controller' 	=> 'login', 
 					  	'action' 		=> 'submit_register', 
-					  	'layout' 		=> 'default'
+					  	'layout' 		=> 'empty'
 				),
 				//Admin panel
 				array(	'url' 			=> '/^admin\/?$/', 

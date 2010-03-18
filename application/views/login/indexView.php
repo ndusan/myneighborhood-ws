@@ -21,7 +21,7 @@
 						<div>
 							<label>Password:</label>
 							<br/>
-							<input type="text" class="textInput" value="" name="passwd"/>
+							<input type="password" class="textInput" value="" name="password"/>
 						</div>
 						<div style="margin-left: 85px;">
 							<button class="btn" type="submit">
