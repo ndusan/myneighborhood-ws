@@ -48,6 +48,11 @@ $routes = array(
 					  	'action' 		=> 'products', 
 					  	'layout' 		=> 'admin'
 				),
+				array(	'url' 			=> '/^admin\/products\/submit\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'submitProducts', 
+					  	'layout' 		=> 'admin'
+				),
 				//Admin panel - orders
 				array(	'url' 			=> '/^admin\/orders\/?$/', 
 						'controller' 	=> 'admin', 

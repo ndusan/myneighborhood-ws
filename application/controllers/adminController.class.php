@@ -3,27 +3,45 @@
 class AdminController extends Controller{
 	
 	function index(){
-		parent::checkSession();
+		$info = parent::userInfoAndSession();
+		parent::set('info', $info);
 		parent::set('page', 'index');
 	}
 	
 	function products(){
-		parent::checkSession();
+		$info = parent::userInfoAndSession();
+		parent::set('info', $info);
 		parent::set('page', 'products');
+		
+		//Get categories
+		$categories = $this->db->getCategories();
+		parent::set('categories', $categories);
+		
+		//Get products
+		$products = $this->db->getProducts($_SESSION['ws-user']['id']);
+		parent::set('products', $products);
+	}
+	
+	function submitProducts($params){
+		if($this->db->setProduct($params)) parent::redirect('products', 'success');
+		else  parent::redirect('products', 'error');
 	}
 	
 	function orders(){
-		parent::checkSession();
+		$info = parent::userInfoAndSession();
+		parent::set('info', $info);
 		parent::set('page', 'orders');	
 	}
 	
 	function settings(){
-		parent::checkSession();
+		$info = parent::userInfoAndSession();
+		parent::set('info', $info);
 		parent::set('page', 'settings');
 	}
 	
 	function suggestions(){
-		parent::checkSession();
+		$info = parent::userInfoAndSession();
+		parent::set('info', $info);
 		parent::set('page', 'suggestions');
 	}
 }

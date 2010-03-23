@@ -2,3 +2,19 @@ body{background:#E8EBEC;color:#595959;font:13px/1.4 "Trebuchet MS", Arial, Helve
 .j_error{
 	border-color: #FF0000;;
 }
+.j_msg_error{
+	border:1px solid #FF0000;
+	height: 25px;
+	width: 500px;
+	background-color: #FF6060;
+	padding: 5px 0px 0px 50px;
+	color: #FFF;
+}
+.j_msg_success{
+	border:1px solid #7FFF00;
+	height: 25px;
+	width: 500px;
+	background-color: #57FF40;
+	padding: 5px 0px 0px 50px;
+	color: #FFF;
+}

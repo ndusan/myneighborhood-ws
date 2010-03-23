@@ -38,8 +38,8 @@
 							<div id="MmLeft"></div>
 							<div id="MmBody">
 								<div style="padding: 20px 0px 0px 10px; color: #FFF;">
-									<div style="float: left;">Hello, Guest</div>
-									<div style="float: left; margin-left: 15px;"><a href="<?php echo BASE_PATH.'logout'.DS;?>">Logout</a></div>
+									<div style="float: left;">Hello, <?php echo $info['firstname']." ".$info['lastname'];?></div>
+									<div style="float: left; margin-left: 15px;">[ <a href="<?php echo BASE_PATH.'logout'.DS;?>">Logout</a> ]</div>
 									<div style="float: right;"><?php echo date("Y-m-d");?></div>
 									
 								</div>

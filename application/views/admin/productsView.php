@@ -14,41 +14,100 @@
 			<div style="margin: 10px 30px 0px 0px;">
 				<!-- Editable area -->
 				<div style="border: 1px solid #CCC; padding: 10px;">
+				<form id="form-product" name="form-product" action="<?php echo BASE_PATH.'admin'.DS.'products'.DS.'submit'.DS;?>" method="post" enctype="multipart/form-data" >
 				<table>
 					<tbody>
-						<tr style="height: 30px;">
-							<th style="width: 150px; text-align: right; padding-right: 10px;">Product name:</th>
-							<td><input type="text" name="product" value="" style="border: 1px solid #CCC;"/></td>
+						<tr style="height: 40px;">
+							<td></td>
+							<td>
+								<h1>Add your product</h1>
+							</td>
 						</tr>
-						<tr style="height: 30px;">
+						<tr style="height: 40px;">
+							<th style="width: 150px; text-align: right; padding-right: 10px;">Product name:</th>
+							<td><input type="text" name="product" value="" style="border: 1px solid #CCC; background-color: #E1E2E3;"/></td>
+						</tr>
+						<tr style="height: 40px;">
 							<th style="width: 150px; text-align: right; padding-right: 10px;">Category type:</th>
 							<td>
-								<select name="category" style="border: 1px solid #CCC; width: 180px;">
-									<option value=""></option>
+								<select name="category" style="border: 1px solid #CCC; width: 180px; background-color: #E1E2E3;">
+									<option value="0">Select category</option>
+									<?php foreach($categories as $category):?>
+									<option value="<?php echo $category['id'];?>"><?php echo $category['name'];?></option>
+									<?php endforeach;?>
 								</select>
 							</td>
 						</tr>
-						<tr style="height: 30px;">
+						<tr style="height: 40px;">
 							<th style="width: 150px; text-align: right; padding-right: 10px;">Price:</th>
-							<td><input type="text" name="price" value="" style="border: 1px solid #CCC;"/></td>
+							<td><input type="text" name="price" value="" style="border: 1px solid #CCC; background-color: #E1E2E3;"/> &euro; </td>
 						</tr>
-						<tr style="height: 30px;">
+						<tr style="height: 40px;">
 							<th style="width: 150px; text-align: right; padding-right: 10px;">Image:</th>
-							<td><input type="file" name="file" style="border: 1px solid #CCC;"/></td>
+							<td><input type="file" name="file" style="border: 1px solid #CCC; background-color: #E1E2E3;"/></td>
 						</tr>
-						<tr style="height: 30px;">
+						<tr style="height: 40px;">
 							<th style="width: 150px; text-align: right; padding-right: 10px; vertical-align: top;">Note:</th>
 							<td>
-								<textarea name="note" rows="" cols="" style="border: 1px solid #CCC;"></textarea>
+								<textarea name="note" rows="" cols="" style="border: 1px solid #CCC; background-color: #E1E2E3;"></textarea>
 							</td>
 						</tr>
 						<tr style="height: 30px;">
 							<td></td>
 							<td><input type="submit" name="button" value="Submit"style="border: 1px solid #CCC; padding: 2px 5px;" /></td>
 						</tr>
+						
 					</tbody>
 				</table>
+				</form>
 				</div>
+				<br/>
+				<!-- view added -->
+				<?php if(isset($products) && !empty($products)):?>
+				<table width="100%" style="border: 1px solid #CCC;">
+					<tbody>
+						<tr style="height: 10px;">
+							<td colspan="5"></td>
+						</tr>
+						<tr style="text-align: left;">
+							<th style="padding-left: 5px;">Product name</th>
+							<th>Category type</th>
+							<th>Price</th>
+							<th>Additional info</th>
+							<th>Action</th>
+						</tr>
+						<?php 
+							  $num = 0;
+							  foreach($products as $product):?>
+						<tr  <?php echo (++$num%2==0 ? "style='background-color: #E7E7E2;'" : "");?>>
+							<td style="padding-left: 5px;"><?php echo $product['name'];?></td>
+							<td><?php echo $product['category'];?></td>
+							<td><?php echo $product['price'];?>&euro; </td>
+							<td><a href="javascript:;" onclick="javascript:showHide(<?php echo $product['id'];?>);">read more</a></td>
+							<td>
+								<?php if($product['user_id']==$_SESSION['ws-user']['id']):?>
+								<a href="" >edit</a><br/>
+								<a href="" >delete</a>
+								<?php else:?>
+								none
+								<?php endif;?>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5" style="display: none; padding-left: 5px;" id="div-<?php echo $product['id'];?>">
+								<br/>
+								Added by: <?php echo $product['addedby'];?><br/>
+								Image: <img src="<?php echo UPLOAD_PATH.$product['image'];?>" alt="" title="<?php echo $product['name'];?>" /><br/>
+								Note: <?php echo $product['note']; ?><br/>
+							</td>
+						</tr>
+						<?php endforeach;?>
+						<tr style="height: 20px;">
+							<td colspan="5"></td>
+						</tr>
+					</tbody>
+				</table>
+				<?php endif;?>
 			</div>
 		</div>
 		<div class="one-third">
