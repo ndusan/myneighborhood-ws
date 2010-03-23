@@ -11,10 +11,20 @@
 				<div class="tab" style="padding-top: 17px; color: #FFF;">Home page</div>
 			</div>
 			<?php echo $html->msg($_GET); ?>
-			<div style="margin: 50px 0px 0px 180px;">
+			<div style="margin: 50px 0px 0px 0px;">
 				<!-- Editable area -->
-				
-				
+				Welcome to demo simulation of webshop made by Dusan Novakovic
+				<br/><br/>
+				In this admin panel you are able to add/edit prodacts, check made orders, set 
+				your own personal settings and send some suggestions.
+				When you are ready by clicking on link 'Your Webshop' you will end up on client side webshop
+				where you will be able to make some orders (by selecting prodacts that you created in admin panel).
+				After that you can again go back to admin panel and check those orders you made.
+				<br/><br/>
+				My main goal here was to present both sides, administration and user, so that you could get great picture
+				how the application works.
+				<br/><br/>
+				Have fun using it!
 				
 				
 			</div>

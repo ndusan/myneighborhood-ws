@@ -8,6 +8,7 @@ define('IN_DEV', true);
 //Messages
 define('SUCCESS_MSG', 'Success');
 define('ERROR_MSG', 'Error');
+define('EMAIL_ERROR_MSG', 'Email already in use');
 
 //DB params
 define('DB_HOST', 'localhost');
@@ -30,3 +31,4 @@ define('LAYOUT_PATH', 'application'.DS.'views'.DS.'layout'.DS);
 define('IMAGE_PATH', BASE_PATH.'public'.DS.'images'.DS);
 define('CSS_PATH', BASE_PATH.'public'.DS.'css'.DS);
 define('JS_PATH', BASE_PATH.'public'.DS.'js'.DS);
+define('UPLOAD_PATH', BASE_PATH.'public'.DS.'uploads'.DS);

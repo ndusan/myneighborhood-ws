@@ -68,6 +68,9 @@ class HTML{
 			case 'success':
 						$txt = "<div class='j_msg_success'>".SUCCESS_MSG."</div>";
 						break;
+			case 'email':
+						$txt = "<div class='j_msg_error'>".EMAIL_ERROR_MSG."</div>";
+						break;
 			default:	break;
 		}
 		return $txt;

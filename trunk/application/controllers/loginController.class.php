@@ -51,6 +51,6 @@ class LoginController extends Controller{
 			//Send email with data
 			parent::sendEmail($data);
 			parent::redirect('admin', 'success');
-		}else parent::redirect('register', 'error');
+		}else parent::redirect('register', 'email');
 	}
 }

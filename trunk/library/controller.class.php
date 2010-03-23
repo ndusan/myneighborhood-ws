@@ -74,6 +74,8 @@ class Controller{
 							break;
 			case 'success':	$url = "Location: ".BASE_PATH.(empty($url) ? '' : $url.DS).'?q=success';
 							break;
+			case 'email':	$url = "Location: ".BASE_PATH.(empty($url) ? '' : $url.DS).'?q=email';
+							break;
 			default:		$url = "Location: ".BASE_PATH.(empty($url) ? '' : $url.DS);
 		}
 		header($url);
@@ -96,15 +98,26 @@ class Controller{
 		$this->renderHTML = 1;
 	}
 	
-	function sendEmail($data){
+	function sendEmail($data, $action){
 		
 		$from = "MIME-Version: 1.0\r\n";
         $from .= "Content-type: text/html; charset=utf-8\r\n";
         $from .= "From:Webshop - demo application<noreplay@novakovicdusan.com>\r\n";
         
-        $subject = "Forgot password generator";
+        switch($action){
+        	case 'new':
+        				$subject = "Welcome to demo application - Webshop";		
+						$par = "<br/>Your credentials are:<br/><br/>- Email: ".$data['email']."<br/>- Password: ".$data['password']."<br/><br/>If you want to access to webshop page click here: <a href='http://webshop.novakovicdusan.com'>http://webshop.novakovicdusan.com</a><br/><br/>";
+        				break;
+        	case 'forgot':
+        				$subject = "Forgot password generator";		
+						$par = "<br/>On your request we are sending to you new password:<br/><br/>- Email: ".$data['email']."<br/>- Password: ".$data['password']."<br/><br/>If you want to access to webshop page click here: <a href='http://webshop.novakovicdusan.com'>http://webshop.novakovicdusan.com</a><br/><br/>";
+        				break;
+        	default:	break;
+        }
+        
         $head = "Dear <b>".$data['firstname']." ".$data['lastname']."</b>,";
-        $par = "<br/>On your request we are sending to you new password:<br/><br/>- Email: ".$data['email']."<br/>- Password: ".$data['password']."<br/><br/>If you want to access to webshop page click here: <a href='http://webshop.novakovicdusan.com'>http://webshop.novakovicdusan.com</a><br/><br/>";
+        
         $sign = "Thank you using our service,<br/><b>Webshop generator</b>";
         $mis = "<br/>If you received this message by mistake, please delete it.";
 				        
@@ -163,8 +176,10 @@ class Controller{
 	 * Check session
 	 * @return void
 	 */
-	function checkSession(){
+	function userInfoAndSession(){
 		if(!isset($_SESSION['ws-user'])) $this->redirect('', '');
+		//Check for user info
+		return $this->db->getUserInfo($_SESSION['ws-user']);
 	}
 	
 }

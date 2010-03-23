@@ -39,4 +39,30 @@ class Model{
 	        $r .= chr(rand(0, 25) + ord('a'));
 	    return $r;
     }
+    
+    /**
+     * Get user info
+     * @param array $params
+     * @return array
+     */
+    function getUserInfo($params){
+    	$query = sprintf("SELECT * FROM `users` WHERE `id`='%s'",
+    					$params['id']
+    					);
+    	$res = mysql_query($query);
+    	return mysql_fetch_assoc($res);
+    }
+    
+	/**
+	* turns mysql resource into array
+	* @param resource $result
+	* @return array
+	*/
+	function result_to_array($result){
+		$result_array = array();
+	    for ($i=0; $row = @mysql_fetch_array($result); $i++){
+	    	$result_array[$i] = $row; 
+	    }
+	    return $result_array;
+	}
 }
