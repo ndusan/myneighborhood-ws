@@ -17,7 +17,7 @@
 						<div>
 							<label>Email:</label>
 							<br/>
-							<input type="text" class="textInput" value=""/>
+							<input type="text" class="textInput" value="" name="email"/>
 						</div>
 						<div style="margin-left: 85px;">
 							<button class="btn" type="submit">

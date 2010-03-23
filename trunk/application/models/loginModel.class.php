@@ -41,6 +41,7 @@ class LoginModel extends Model{
 							);
 			mysql_query($query);
 			$row['password'] = $newPassword;
+			return $row;
 		}else return false;
 	}
 	

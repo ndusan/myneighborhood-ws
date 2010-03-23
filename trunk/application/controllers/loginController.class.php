@@ -27,10 +27,10 @@ class LoginController extends Controller{
 	 * Submit forgot password
 	 * @return void
 	 */
-	function submit_forgot(){
+	function submit_forgot($params){
 		if($data = $this->db->getForgotUser($params)){
 			//Send email with data
-			parent::sendEmail($data);
+			parent::sendEmail($data, 'forgot');
 			parent::redirect('forgot', 'success');
 		}else parent::redirect('forgot', 'error');
 	}
@@ -49,7 +49,7 @@ class LoginController extends Controller{
 	function submit_register($params){
 		if($data = $this->db->setNewUser($params)){
 			//Send email with data
-			parent::sendEmail($data);
+			parent::sendEmail($data, 'new');
 			parent::redirect('admin', 'success');
 		}else parent::redirect('register', 'email');
 	}
