@@ -8,7 +8,7 @@ class AdminModel extends Model{
 	 * @return array
 	 */
 	function getProducts($userId){
-		$query = sprintf("SELECT * FROM `products` WHERE `user_id`='%s' OR `user_id`='%s'",
+		$query = sprintf("SELECT * FROM `products` WHERE (`user_id`='%s' OR `user_id`='%s') AND `status`=1",
 						mysql_real_escape_string($userId),
 						mysql_real_escape_string(0)
 						);
@@ -60,20 +60,102 @@ class AdminModel extends Model{
 		}
 	}
 	
+	/**
+	 * Insert new product in system
+	 * @param array $params
+	 * @return boolean
+	 */
 	function setProduct($params){
-		if(!empty($params['name']) && $params['category']!=0 && !empty($params['price'])){
-			if(empty($params['note'])) $params['note'] = '';
-			$query = sprintf("INSERT INTO `products` SET `name`='%s', `category_id`='%s', `price`='%s', `note`='%s', `user_id`='%s'",
-							mysql_real_escape_string($params['name']),
-							mysql_real_escape_string($params['category']),
-							mysql_real_escape_string($params['price']),
-							mysql_real_escape_string($params['note']),
+		
+		//Update or insert
+		if(isset($params['id']) && !empty($params['id'])){
+			if(!empty($params['product']) && $params['category']!=0 && !empty($params['price'])){
+				if(empty($params['note'])) $params['note'] = '';
+				$query = sprintf("UPDATE `products` SET `name`='%s', `category_id`='%s', `price`='%s', `note`='%s' WHERE `user_id`='%s' AND `id`='%s'",
+								mysql_real_escape_string($params['product']),
+								mysql_real_escape_string($params['category']),
+								mysql_real_escape_string($params['price']),
+								mysql_real_escape_string($params['note']),
+								mysql_real_escape_string($_SESSION['ws-user']['id']),
+								mysql_real_escape_string($params['id'])
+								);
+				mysql_query($query);
+				
+				//Update image if uploaded
+				if($params['file']['tmp_name'] == 0){
+					$query = sprintf("UPDATE `products` SET `image`='%s' WHERE `user_id`='%s' AND `id`='%s'",
+									mysql_real_escape_string($params['file']['name']),
+									mysql_real_escape_string($_SESSION['ws-user']['id']),
+									mysql_real_escape_string($params['id'])
+									);
+					mysql_query($query);
+				}
+				return $params['id'];
+			}else return false;	
+		}else{
+			if(!empty($params['product']) && $params['category']!=0 && !empty($params['price'])){
+				if(empty($params['note'])) $params['note'] = '';
+				$query = sprintf("INSERT INTO `products` SET `name`='%s', `category_id`='%s', `price`='%s', `note`='%s', `image`='%s', `user_id`='%s'",
+								mysql_real_escape_string($params['product']),
+								mysql_real_escape_string($params['category']),
+								mysql_real_escape_string($params['price']),
+								mysql_real_escape_string($params['note']),
+								mysql_real_escape_string($params['file']['name']),
+								mysql_real_escape_string($_SESSION['ws-user']['id'])
+								);
+				mysql_query($query);
+				return mysql_insert_id();
+			}else return false;
+		}
+	}
+	
+	/**
+	 * Get selected product for user on system
+	 * @param array $params
+	 * @return array or boolean
+	 */
+	function getProduct($params){
+		if(!empty($params['id'])){
+			$query = sprintf("SELECT * FROM `products` WHERE `id`='%s' AND `user_id`='%s'",
+							mysql_real_escape_string($params['id']),
+							mysql_real_escape_string($_SESSION['ws-user']['id'])
+							);
+			$res = mysql_query($query);
+			if(mysql_num_rows($res)<=0) return false;
+			return mysql_fetch_assoc($res);
+		}else return false;
+	}
+	
+	/**
+	 * Disable selected product
+	 * @param $params
+	 * @return boolean
+	 */
+	function deleteProduct($params){
+		if(!empty($params['id'])){
+			$query = sprintf("UPDATE `products` SET `status`='0' WHERE `id`='%s' AND `user_id`='%s'",
+							mysql_real_escape_string($params['id']),
+							mysql_real_escape_string($_SESSION['ws-user']['id'])
+							);
+			$res = mysql_query($query);
+			return true;
+		}else return false;
+	}
+	
+/**
+	 * Insert new suggestion in system
+	 * @param array $params
+	 * @return boolean
+	 */
+	function setSuggestion($params){
+	
+		if(!empty($params['text'])){
+			$query = sprintf("INSERT INTO `suggestions` SET `text`='%s', `user_id`='%s'",
+							mysql_real_escape_string($params['text']),
 							mysql_real_escape_string($_SESSION['ws-user']['id'])
 							);
 			mysql_query($query);
-			return mysql_insert_id();
+			return true;
 		}else return false;
-		print_r($params);
-		exit;
 	}
 }
