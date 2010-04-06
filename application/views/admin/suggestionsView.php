@@ -11,12 +11,30 @@
 				<div class="tab" style="padding-top: 17px; color: #FFF;">Suggestions</div>
 			</div>
 			<?php echo $html->msg($_GET); ?>
-			<div style="margin: 50px 0px 0px 180px;">
+			<div style="margin: 10px 30px 0px 0px;">
 				<!-- Editable area -->
-				
-				
-				
-				
+				<div style="border: 1px solid #CCC; padding: 10px;">
+				<form id="form-product" name="form-product" action="<?php echo BASE_PATH.'admin'.DS.'suggestions'.DS.'submit'.DS;?>" method="post" >
+				<table>
+					<tbody>
+						<tr>
+							<td style="vertical-align: top;">
+								Note: &nbsp;
+							</td>
+							<td>
+								<textarea rows="" cols="" name="text" style="width: 480px; height: 200px;"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<input type="submit" name="button" value="Submit" style="border: 1px solid #CCC; padding: 2px 5px;"/>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				</form>
+				</div>				
 			</div>
 		</div>
 		<div class="one-third">

@@ -51,7 +51,22 @@ $routes = array(
 				array(	'url' 			=> '/^admin\/products\/submit\/?$/', 
 						'controller' 	=> 'admin', 
 					  	'action' 		=> 'submitProducts', 
+					  	'layout' 		=> 'empty'
+				),
+				array(	'url' 			=> '/^admin\/products\/submit\/(?P<id>\d*)\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'updateProducts', 
+					  	'layout' 		=> 'empty'
+				),
+				array(	'url' 			=> '/^admin\/products\/(?P<id>\d*)\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'products', 
 					  	'layout' 		=> 'admin'
+				),
+				array(	'url' 			=> '/^admin\/products\/(?P<id>\d*)\/delete\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'deleteProduct', 
+					  	'layout' 		=> 'empty'
 				),
 				//Admin panel - orders
 				array(	'url' 			=> '/^admin\/orders\/?$/', 
@@ -70,5 +85,10 @@ $routes = array(
 						'controller' 	=> 'admin', 
 					  	'action' 		=> 'suggestions', 
 					  	'layout' 		=> 'admin'
+				),
+				array(	'url' 			=> '/^admin\/suggestions\/submit\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'submitSuggestion', 
+					  	'layout' 		=> 'empty'
 				),
 		  );

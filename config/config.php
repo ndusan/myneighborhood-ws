@@ -31,4 +31,4 @@ define('LAYOUT_PATH', 'application'.DS.'views'.DS.'layout'.DS);
 define('IMAGE_PATH', BASE_PATH.'public'.DS.'images'.DS);
 define('CSS_PATH', BASE_PATH.'public'.DS.'css'.DS);
 define('JS_PATH', BASE_PATH.'public'.DS.'js'.DS);
-define('UPLOAD_PATH', BASE_PATH.'public'.DS.'uploads'.DS);
+define('UPLOAD_PATH', 'public'.DS.'uploads'.DS);
