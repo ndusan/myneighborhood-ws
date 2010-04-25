@@ -10,7 +10,7 @@ class LoginModel extends Model{
 		
 		$query = sprintf("SELECT * FROM `users` WHERE `email`='%s' AND `password`=PASSWORD('%s') AND `status`=1",
 						mysql_real_escape_string($params['email']),
-						mysql_real_escape_string($params['password'])		
+						mysql_real_escape_string($params['password'])
 						);
 		$res = mysql_query($query);
 		

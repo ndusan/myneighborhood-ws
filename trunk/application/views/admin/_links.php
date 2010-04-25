@@ -1,4 +1,4 @@
-<h1 class="title" style="margin: 0px 0px 0px 10px;">Go to '<a href="<?php echo BASE_PATH.'webshop'.DS;?>" >Your Webshop</a>'</h1>
+<h1 class="title" style="margin: 0px 0px 0px 10px;">Go to '<a href="<?php echo BASE_PATH.'user'.DS;?>" >Your Webshop</a>'</h1>
 <div class="sideNavWrapper">
 	<div class="sideNavBox-1">
 		<div class="sideNavBox-2">

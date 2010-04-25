@@ -1,9 +1,11 @@
+<?php @include_once('_carousel.php');?>
+
 <!-- Content start -->
 				
 	<div class="contentArea pageContent">
 		<div class="two-thirds">
 			<h1 class="headline">
-				Welcome to web-shop :: admin panel
+				Welcome to web-shop :: user panel
 			</h1>
 			<div class="hr"></div>
 			<div class="ribbon">
@@ -15,14 +17,11 @@
 				<!-- Editable area -->
 				Welcome to demo simulation of webshop made by Dusan Novakovic
 				<br/><br/>
-				In this admin panel you can add/edit products, check made orders, set 
-				your own personal settings and send some suggestions.
-				When you are ready, by clicking on link 'Your Webshop' (in top right corner) you will end up on client side of the webshop
-				where you will be able to make orders (by selecting 'products' that you created in admin panel).
-				After that you can again go back to 'admin panel' and the check those orders you made.
-				<br/><br/>
-				My main goal here was to present both sides, administration and user, so that you can get general idea 
-				how the application works.
+				In this client(user) panel you can make orders by selecting a category from the main menu on the right-hand side and then adding
+				certain quantity of the desired product offered in the list. All the chosen products are saved and can reviewed in 'My basket'. 
+				When the shopping list is completed you can make the final order by clicking on the button 'Order now'. All the orders made can be 
+				viewed in 'Admin panel', section 'Orders'. 
+				The main central carousel will always show several last added products that you had added.
 				<br/><br/>
 				Have fun using it!
 				
@@ -31,13 +30,13 @@
 		</div>
 		<div class="one-third">
 			
-						<?php include(VIEW_PATH.'admin'.DS.'_links.php');?>
+						<?php include(VIEW_PATH.'user'.DS.'_links.php');?>
 					
 			<div class="quote">
 				<div class="quoteBox-1">
 					<div class="quoteBox-2">
 						<p>
-						Welcome to admin panel. Here you are able to set all options regarding admin side of system.
+						Welcome to client(user) panel. Here you are able to set all options regarding client(user) side of system.
 						</p>
 					</div>
 				</div>

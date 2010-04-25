@@ -2,7 +2,7 @@
 
 class AdminController extends Controller{
 	
-	function index(){
+	public function index(){
 		$info = parent::userInfoAndSession();
 		parent::set('info', $info);
 		parent::set('page', 'index');
@@ -13,7 +13,7 @@ class AdminController extends Controller{
 	 * @param array $params
 	 * @return array
 	 */
-	function products($params){
+	public function products($params){
 		
 		$info = parent::userInfoAndSession();
 		parent::set('info', $info);
@@ -39,9 +39,8 @@ class AdminController extends Controller{
 	 * @param $params
 	 * @return void
 	 */
-	function submitProducts($params){
+	public function submitProducts($params){
 		if($productId = $this->db->setProduct($params)){
-			
 			//Upload file 
 			if($params['file']['error'] == 0) move_uploaded_file($params['file']['tmp_name'], UPLOAD_PATH.$productId."-".$params['file']['name']);
 			parent::redirect('admin'.DS.'products', 'success');
@@ -53,7 +52,7 @@ class AdminController extends Controller{
 	 * @param $params
 	 * @return void
 	 */
-	function updateProducts($params){
+	public function updateProducts($params){
 		if($productId = $this->db->setProduct($params)){
 			//Upload file
 			if($params['file']['error'] == 0) move_uploaded_file($params['file']['tmp_name'], UPLOAD_PATH.$productId."-".$params['file']['name']);
@@ -66,7 +65,7 @@ class AdminController extends Controller{
 	 * @param array $params
 	 * @return void
 	 */
-	function getProduct($params){
+	public function getProduct($params){
 		$info = parent::userInfoAndSession();
 		parent::set('info', $info);
 		parent::set('page', 'products');
@@ -79,7 +78,7 @@ class AdminController extends Controller{
 	 * @param array $params
 	 * @return void
 	 */
-	function deleteProduct($params){
+	public function deleteProduct($params){
 		if($this->db->deleteProduct($params)) parent::redirect('admin'.DS.'products', 'success');
 		else  parent::redirect('admin'.DS.'products', 'error');
 	}
@@ -88,19 +87,42 @@ class AdminController extends Controller{
 	 * Orders
 	 * @return unknown_type
 	 */
-	function orders(){
+	public function orders(){
 		$info = parent::userInfoAndSession();
 		parent::set('info', $info);
 		parent::set('page', 'orders');	
+		
+		parent::set('orders', $this->db->getOrders($_SESSION['ws-user']['id']));
 	}
 	
-	function settings(){
+	/**
+	 * Get settings for this user
+	 * @return array
+	 */
+	public function settings(){
 		$info = parent::userInfoAndSession();
 		parent::set('info', $info);
 		parent::set('page', 'settings');
 	}
 	
-	function suggestions(){
+	/**
+	 * Submit settings
+	 * @param array $params
+	 * @return void
+	 */
+	public function submitSettings($params){
+		$info = parent::userInfoAndSession();
+		
+		$this->db->submitSettings($params, $_SESSION['ws-user']['id']);
+		parent::redirect('admin'.DS.'settings', 'success');
+		
+	}
+	
+	/**
+	 * Page with suggestions
+	 * @return void
+	 */
+	public function suggestions(){
 		$info = parent::userInfoAndSession();
 		parent::set('info', $info);
 		parent::set('page', 'suggestions');
@@ -111,7 +133,7 @@ class AdminController extends Controller{
 	 * @param $params
 	 * @return void
 	 */
-	function submitSuggestion($params){
+	public function submitSuggestion($params){
 		if($this->db->setSuggestion($params)) parent::redirect('admin'.DS.'suggestions', 'success');
 		else  parent::redirect('admin'.DS.'suggestions', 'error');
 	}

@@ -27,6 +27,30 @@ $(document).ready(function(){
 		
 		if(!allOk) return false;
 	});
+	
+	/* Remove 0 */
+	$("input[id^='value-']").click(function(){
+		$(this).val('');
+	});
+	
+	/* Add to basket */
+	$("input[type='button']").click(function(){
+		var id = $(this).attr('id');
+		id = id.substring(4, id.length);
+		var productId = id;
+		var val = $("#value-"+id).val();
+		
+		if(val>0){
+			$.post(	$('#url').val()+'user/basket/ajax-set-basket/',
+					{id: productId, num: val},
+					function(data){
+						$("#value-"+productId).val('0');
+						$("#show-"+productId).fadeIn(500).fadeOut(3000);
+					}
+			);
+		}
+	});
+	
 });
 
 /**

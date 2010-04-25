@@ -20,6 +20,12 @@
 		<!-- Default js file -->
 		<?php echo $html->js('default'); ?>
 
+		<!-- Default carousel js file -->
+		<?php echo $html->js('jquery.jcarousel.pack'); ?>
+		<!-- Default carousel css file -->
+		<?php echo $html->css('jquery.jcarousel'); ?>
+		<?php echo $html->css('skin'); ?>
+
 		<?php 
 		//Custom calls for css
 		echo $html->customCss($this->_css);

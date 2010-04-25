@@ -8,9 +8,8 @@ class AdminModel extends Model{
 	 * @return array
 	 */
 	function getProducts($userId){
-		$query = sprintf("SELECT * FROM `products` WHERE (`user_id`='%s' OR `user_id`='%s') AND `status`=1",
-						mysql_real_escape_string($userId),
-						mysql_real_escape_string(0)
+		$query = sprintf("SELECT * FROM `products` WHERE `user_id`='%s' AND `status`=1",
+						mysql_real_escape_string($userId)
 						);
 		$res_pr = mysql_query($query);
 		$array = array();
@@ -157,5 +156,54 @@ class AdminModel extends Model{
 			mysql_query($query);
 			return true;
 		}else return false;
+	}
+	
+	/**
+	 * Get orders
+	 * @param int $userId
+	 * @return array
+	 */
+	public function getOrders($userId){
+		
+		$query = sprintf("SELECT `products`.*, `orders`.`quantity` FROM `products` INNER JOIN `orders` ON `products`.`id`=`orders`.`product_id` WHERE `orders`.`user_id`='%s'",
+						mysql_real_escape_string($userId)
+						);
+		$res = mysql_query($query);
+		
+		if(mysql_num_rows($res)<=0) return false;
+		$array = array();
+		
+		while($row = mysql_fetch_assoc($res)) $array[] = $row;
+		
+		return $array;
+	}
+	
+	/**
+	 * Submit settings
+	 * @param array $params
+	 * @param int $userId
+	 * @return boolean
+	 */
+	public function submitSettings($params, $userId){
+		
+		$query = sprintf("UPDATE `users` SET `firstname`='%s', `lastname`='%s', `address`='%s', `code`='%s', `city`='%s' WHERE `id`='%s'",
+						mysql_real_escape_string($params['firstname']),
+						mysql_real_escape_string($params['lastname']),
+						mysql_real_escape_string($params['address']),
+						mysql_real_escape_string($params['code']),
+						mysql_real_escape_string($params['city']),
+						mysql_real_escape_string($userId)
+						);
+		mysql_query($query);
+		
+		//Change password if new entered
+		if(!empty($params['password'])){
+			$query = sprintf("UPDATE `users` SET `password`=PASSWORD('%s') WHERE `id`='%s'",
+							mysql_real_escape_string($params['password']),
+							mysql_real_escape_string($userId)
+							);
+			mysql_query($query);
+		}
+		return true;
 	}
 }

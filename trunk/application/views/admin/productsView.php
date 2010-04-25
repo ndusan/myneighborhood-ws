@@ -11,26 +11,37 @@
 				<div class="tab" style="padding-top: 17px; color: #FFF;">Products</div>
 			</div>
 			<?php echo $html->msg($_GET); ?>
-			<div style="margin: 10px 30px 0px 0px;">
+			<div class="ws-edit">
 				<!-- Editable area -->
-				<div style="border: 1px solid #CCC; padding: 10px;">
-				<form id="form-product" name="form-product" action="<?php echo BASE_PATH.'admin'.DS.'products'.DS.'submit'.DS.(isset($product['id']) ? $product['id'].DS : '');?>" method="post" enctype="multipart/form-data" >
-				<table>
-					<tbody>
-						<tr style="height: 40px;">
-							<td></td>
-							<td>
-								<h1><?php echo (isset($product['id']) ? "Edit" : "Add");?> your product</h1>
-							</td>
-						</tr>
-						<tr style="height: 40px;">
-							<th style="width: 150px; text-align: right; padding-right: 10px;">Product name:</th>
-							<td><input type="text" name="product" value="<?php echo @$product['name'];?>" style="border: 1px solid #CCC; background-color: #E1E2E3;"/></td>
-						</tr>
-						<tr style="height: 40px;">
-							<th style="width: 150px; text-align: right; padding-right: 10px;">Category type:</th>
-							<td>
-								<select name="category" style="border: 1px solid #CCC; width: 180px; background-color: #E1E2E3;">
+				
+				<div class="display">
+				<form enctype="multipart/form-data" name="form-info" id="form-info" action="<?php echo BASE_PATH.'admin'.DS.'products'.DS.'submit'.DS;?>" method="post" >
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th colspan="2">
+									<div class="common_title">
+										<h3><?php echo (isset($product['id']) ? "Edit" : "Add");?> your product</h3>
+										<div class="common_subtitile">
+										Your information entered on registration page
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+								Product name:
+								</td>
+								<td>
+									<input type="text" name="product" value="<?php echo @$product['name'];?>"/>
+								</td>
+							</tr>
+							<tr style="height: 40px;">
+								<td>Category type:</td>
+								<td>
+								<select name="category" >
 									<option value="0">Select category</option>
 									<?php foreach($categories as $category):
 											if($category['id'] == @$product['category_id']) $sel = "selected='selected'";
@@ -39,36 +50,41 @@
 									<option <?php echo $sel;?> value="<?php echo $category['id'];?>"><?php echo $category['name'];?></option>
 									<?php endforeach;?>
 								</select>
-							</td>
-						</tr>
-						<tr style="height: 40px;">
-							<th style="width: 150px; text-align: right; padding-right: 10px;">Price:</th>
-							<td><input type="text" name="price" value="<?php echo @$product['price'];?>" style="border: 1px solid #CCC; background-color: #E1E2E3;"/> &euro; </td>
-						</tr>
-						<tr style="height: 40px;">
-							<th style="width: 150px; text-align: right; padding-right: 10px;">Image:</th>
-							<td>
-								<input type="file" name="file" style="border: 1px solid #CCC; background-color: #E1E2E3;"/>
-								<?php if(isset($product['image']) && !empty($product['image'])):?>
-									<br/>
-									[ <?php echo $product['image'];?> ]
-								<?php endif;?>
-							</td>
-						</tr>
-						<tr style="height: 40px;">
-							<th style="width: 150px; text-align: right; padding-right: 10px; vertical-align: top;">Note:</th>
-							<td>
-								<textarea name="note" rows="" cols="" style="border: 1px solid #CCC; background-color: #E1E2E3;"><?php echo @$product['note'];?></textarea>
-							</td>
-						</tr>
-						<tr style="height: 30px;">
-							<td></td>
-							<td><input type="submit" name="button" value="Submit" style="border: 1px solid #CCC; padding: 2px 5px;" /></td>
-						</tr>
-						
-					</tbody>
-				</table>
-				</form>
+								</td>
+							</tr>
+							<tr style="height: 40px;">
+								<td>Price:</td>
+								<td>
+									<input type="text" name="price" value="<?php echo @$product['price'];?>" style="width: 50px;" /> &euro; 
+								</td>
+							</tr>
+							<tr style="height: 40px;">
+								<td>Image:</td>
+								<td>
+									<input type="file" name="file" />
+									<?php if(isset($product['image']) && !empty($product['image'])):?>
+										<br/>
+										[ <?php echo $product['image'];?> ]
+									<?php endif;?>
+								</td>
+							</tr>
+							<tr style="height: 40px;">
+								<td>Note:</td>
+								<td>
+									<textarea name="note" rows="" cols="" style="background-image: none;" ><?php echo @$product['note'];?></textarea>
+								</td>
+							</tr>
+							</tbody>
+							<tfoot>
+								<tr style="height: 30px;">
+									<td>
+										<input type="submit" name="button" value="Submit" class="button" />
+									</td>
+								</tr>
+								
+							</tfoot>
+						</table>
+					</form>
 				</div>
 				<br/>
 				<!-- view added -->
