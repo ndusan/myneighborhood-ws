@@ -69,6 +69,7 @@ class Controller{
 	 * @return void
 	 */
 	function redirect($url, $msg){
+		
 		switch($msg){
 			case 'error': 	$url = "Location: ".BASE_PATH.(empty($url) ? '' : $url.DS).'?q=error';
 							break;

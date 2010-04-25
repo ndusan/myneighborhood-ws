@@ -56,7 +56,7 @@
 				<div class="quoteBox-1">
 					<div class="quoteBox-2">
 						<p>
-						Register and check it out for free! Trial period is five days. Have fun...
+						Register and check it out for free! Have fun...
 						</p>
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 				<p class="name">Dusan Novakovic</p>
 				<p class="details">
 				<br/>
-				Enter the email and password which you have received to the e-mail address stated in the registration form. The application can be tested within 5 days after the first login to the system. Afterwards, if you are still interested in testing the application, it is necessary to contact the administrator in order to extend the trial period.
+				Enter the e-mail address and password which you have entered in the registration form. The main idea behind this system is to present possibilities of admin and user sides of the webshop application.
 				</p>
 			</div>
 		</div>

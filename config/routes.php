@@ -80,6 +80,11 @@ $routes = array(
 					  	'action' 		=> 'settings', 
 					  	'layout' 		=> 'admin'
 				),
+				array(	'url' 			=> '/^admin\/settings\/submit\/?$/', 
+						'controller' 	=> 'admin', 
+					  	'action' 		=> 'submitSettings', 
+					  	'layout' 		=> 'ajax'
+				),
 				//Admin panel - suggestions
 				array(	'url' 			=> '/^admin\/suggestions\/?$/', 
 						'controller' 	=> 'admin', 
@@ -90,5 +95,43 @@ $routes = array(
 						'controller' 	=> 'admin', 
 					  	'action' 		=> 'submitSuggestion', 
 					  	'layout' 		=> 'empty'
+				),
+				//Webshop
+				array(	'url' 			=> '/^user\/?$/', 
+						'controller' 	=> 'user', 
+					  	'action' 		=> 'index', 
+					  	'layout' 		=> 'user'
+				),
+				//Webshop - basket
+				array(	'url' 			=> '/^user\/basket\/?$/', 
+						'controller' 	=> 'user', 
+					  	'action' 		=> 'basket', 
+					  	'layout' 		=> 'user'
+				),
+				//Webshop - product
+				array(	'url' 			=> '/^user\/category\/(?P<cat_id>\d*)\/?$/', 
+						'controller' 	=> 'user', 
+					  	'action' 		=> 'product', 
+					  	'layout' 		=> 'user'
+				),
+				array(	'url' 			=> '/^user\/category\/(?P<cat_id>\d*)\/(?P<pro_id>\d*)\/?$/', 
+						'controller' 	=> 'user', 
+					  	'action' 		=> 'product', 
+					  	'layout' 		=> 'user'
+				),
+				array(	'url' 			=> '/^user\/basket\/ajax-set-basket\/?$/', 
+						'controller' 	=> 'user', 
+					  	'action' 		=> 'setBasket', 
+					  	'layout' 		=> 'ajax'
+				),
+				array(	'url' 			=> '/^user\/basket\/(?P<id>\d*)\/remove\/?$/', 
+						'controller' 	=> 'user', 
+					  	'action' 		=> 'removeFromBasket', 
+					  	'layout' 		=> 'ajax'
+				),
+				array(	'url' 			=> '/^user\/basket\/submit\/?$/', 
+						'controller' 	=> 'user', 
+					  	'action' 		=> 'submitBasket', 
+					  	'layout' 		=> 'ajax'
 				),
 		  );

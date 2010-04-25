@@ -11,28 +11,39 @@
 				<div class="tab" style="padding-top: 17px; color: #FFF;">Suggestions</div>
 			</div>
 			<?php echo $html->msg($_GET); ?>
-			<div style="margin: 10px 30px 0px 0px;">
+			<div class="ws-edit">
 				<!-- Editable area -->
-				<div style="border: 1px solid #CCC; padding: 10px;">
+				
+				<div class="display">
 				<form id="form-product" name="form-product" action="<?php echo BASE_PATH.'admin'.DS.'suggestions'.DS.'submit'.DS;?>" method="post" >
-				<table>
-					<tbody>
-						<tr>
-							<td style="vertical-align: top;">
-								Note: &nbsp;
-							</td>
-							<td>
-								<textarea rows="" cols="" name="text" style="width: 480px; height: 200px;"></textarea>
-							</td>
-						</tr>
-						<tr>
-							<td></td>
-							<td>
-								<input type="submit" name="button" value="Submit" style="border: 1px solid #CCC; padding: 2px 5px;"/>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+					<table cellpadding="0" cellspacing="0" width="100%">
+						<thead>
+							<tr>
+								<th colspan="2">
+									<div class="common_title">
+										<h3>Write down</h3>
+										<div class="common_subtitile">
+											We would like to hear your oppinion about this application
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<textarea rows="" cols="" name="text" style="background-image: none; width: 480px; height: 200px;"></textarea>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="2">
+									<input type="submit" name="button" value="Submit" style="border: 1px solid #CCC; padding: 2px 5px;"/>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
 				</form>
 				</div>				
 			</div>

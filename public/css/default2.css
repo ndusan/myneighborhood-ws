@@ -1,0 +1,37 @@
+@CHARSET "UTF-8";
+.ws-edit{ margin: -15px 0px 0px -30px;}
+
+/* table with displayed info */
+.display {overflow:hidden; padding:10px 5px; margin-top: 10px;}
+.display label {line-height:20px;}
+.display table {width:100%;}
+.display table th {padding:5px; border-bottom:solid 1px #d8d8d8;}
+.display table tbody td {padding:3px 5px; border-bottom:solid 1px #d8d8d8; border-top:solid 1px #FFF;}
+.display table tfoot td {padding:5px; border-top:solid 1px #FFF;}
+
+/* VISUALS */
+.common_title {padding:0px; margin:0px; font-size: 14px;font-weight: bold; line-height:20px; text-align: left;}
+.common_title h3{padding:0px; margin:0px;}
+.common_title a {text-decoration:none;}
+.common_subtitile {color:#666; font-style: normal; font-weight:normal; font-family: arial, sans-serif;font-size: 12px;}
+
+/* INPUTS */
+.display tbody input {background-color:#FFF; border:solid 1px #b5b5b5; padding:2px; width:250px;}
+.display tbody input:focus {border-color:#74949C; background-color:#e8f0f0;}
+
+.display tbody select {background-color:#FFF; border:solid 1px #b5b5b5; padding:2px; width:250px;}
+
+/* TEXTAREA */
+.display tbody textarea {background-color:#FFF; border:solid 1px #b5b5b5; padding:2px; width:250px; height: 100px;}
+.display tbody textarea:focus {border-color:#74949C;}
+
+.button{ border: 1px solid #74949C; margin: 10px 0px;}
+.j_error{ border-color: #FF0000;}
+.j_msg_error{ border:1px solid #FF0000;	height: 25px; width: 530px;	background-color: #FF6060;	padding: 5px 0px 0px 50px; color: #FFF; margin-left: -20px;}
+.j_msg_success{	border:1px solid #7FFF00; height: 25px;	width: 530px;	background-color: #57FF40;	padding: 5px 0px 0px 50px;	color: #FFF; margin-left: -20px;}
+
+/* Carousel */
+.carousel{padding: 5px 20px 0px 20px;}
+
+.show{border: 1px solid #FFF; padding: 2px; color: #FFF; background-color: #57FF40;}
+.show b{margin: 2px;}

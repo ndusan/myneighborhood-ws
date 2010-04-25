@@ -12,6 +12,7 @@
 		<?php echo $html->css('fancybox'); ?>
 		<?php echo $html->css('tooltip.min'); ?>
 		<?php echo $html->css('default'); ?>
+		<?php echo $html->css('default2'); ?>
 		
 		<!-- Include jQuery -->
 		<?php echo $html->js('jquery-1.4.2.min'); ?>
