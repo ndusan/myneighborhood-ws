@@ -45,7 +45,7 @@ class UserModel extends Model{
 	 */
 	public function getProducts($catId, $userId){
 		
-		$query = sprintf("SELECT * FROM `products` WHERE `category_id`='%s' AND `user_id`='%s' ORDER BY `id` DESC",
+		$query = sprintf("SELECT * FROM `products` WHERE `category_id`='%s' AND (`user_id`='%s' OR `user_id`=0) ORDER BY `id` DESC",
 						mysql_real_escape_string($catId),
 						mysql_real_escape_string($userId)
 						);
@@ -65,7 +65,7 @@ class UserModel extends Model{
 	 */
 	public function getProduct($proId, $userId){
 		
-		$query = sprintf("SELECT * FROM `products` WHERE `id`='%s' AND `user_id`='%s' ORDER BY `id` DESC",
+		$query = sprintf("SELECT * FROM `products` WHERE `id`='%s' AND (`user_id`='%s' OR `user_id`=0) ORDER BY `id` DESC",
 						mysql_real_escape_string($proId),
 						mysql_real_escape_string($userId)
 						);
@@ -105,7 +105,7 @@ class UserModel extends Model{
 			foreach($user['basket'] as $proId => $num) $orders .= $proId.(++$sum<count($user['basket']) ? ', ': '');
 			$orders.= ")";
 		}else return false;
-		$query = sprintf("SELECT * FROM `products` WHERE `user_id`='%s' %s  ORDER BY `id` DESC",
+		$query = sprintf("SELECT * FROM `products` WHERE (`user_id`='%s' OR `user_id`=0) %s  ORDER BY `id` DESC",
 						mysql_real_escape_string($user['id']),
 						mysql_real_escape_string($orders)
 						);

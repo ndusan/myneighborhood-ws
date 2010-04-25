@@ -15,7 +15,7 @@
 				<!-- Editable area -->
 				
 				<div class="display">
-				<form enctype="multipart/form-data" name="form-info" id="form-info" action="<?php echo BASE_PATH.'admin'.DS.'products'.DS.'submit'.DS;?>" method="post" >
+				<form enctype="multipart/form-data" name="form-info" id="form-info" action="<?php echo BASE_PATH.'admin'.DS.'products'.DS.'submit'.DS.(isset($product['id']) ? $product['id'].DS : "");?>" method="post" >
 					<table cellpadding="0" cellspacing="0" width="100%">
 						<thead>
 							<tr>

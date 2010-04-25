@@ -45,6 +45,7 @@ class UserController extends Controller{
 		
 		//Get products from basket FROM SESSION
 		parent::set('products', $this->db->getProductsFromSession($_SESSION['ws-user']));
+		
 	}
 	
 	/**
