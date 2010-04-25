@@ -42,7 +42,10 @@ class AdminController extends Controller{
 	public function submitProducts($params){
 		if($productId = $this->db->setProduct($params)){
 			//Upload file 
-			if($params['file']['error'] == 0) move_uploaded_file($params['file']['tmp_name'], UPLOAD_PATH.$productId."-".$params['file']['name']);
+			if($params['file']['error'] == 0){
+				move_uploaded_file($params['file']['tmp_name'], UPLOAD_PATH.$productId."-".$params['file']['name']);
+				chmod(UPLOAD_PATH.$productId."-".$params['file']['name'], 644);	
+			}
 			parent::redirect('admin'.DS.'products', 'success');
 		}else  parent::redirect('admin'.DS.'products', 'error');
 	}
@@ -55,7 +58,10 @@ class AdminController extends Controller{
 	public function updateProducts($params){
 		if($productId = $this->db->setProduct($params)){
 			//Upload file
-			if($params['file']['error'] == 0) move_uploaded_file($params['file']['tmp_name'], UPLOAD_PATH.$productId."-".$params['file']['name']);
+			if($params['file']['error'] == 0){
+				move_uploaded_file($params['file']['tmp_name'], UPLOAD_PATH.$productId."-".$params['file']['name']);
+				chmod(UPLOAD_PATH.$productId."-".$params['file']['name'], 644);	
+			}
 			parent::redirect('admin'.DS.'products', 'success');
 		}else  parent::redirect('admin'.DS.'products', 'error');
 	}
