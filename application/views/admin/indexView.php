@@ -13,15 +13,15 @@
 			<?php echo $html->msg($_GET); ?>
 			<div style="margin: 50px 0px 0px 0px;">
 				<!-- Editable area -->
-				Welcome to demo simulation of webshop made by Dusan Novakovic
+				Welcome to demo simulation of webshop made by Dusan Novakovic!
 				<br/><br/>
 				In this admin panel you can add/edit products, check made orders, set 
-				your own personal settings and send some suggestions.
-				When you are ready, by clicking on link 'Your Webshop' (in top right corner) you will end up on client side of the webshop
+				your own personal settings and send your suggestions.
+				When you are ready, by clicking on link 'Your Webshop' (in top right corner) you will end up on the client side of the webshop
 				where you will be able to make orders (by selecting 'products' that you created in admin panel).
-				After that you can again go back to 'admin panel' and the check those orders you made.
+				After that you can again go back to 'admin panel' and the check the orders you made.
 				<br/><br/>
-				My main goal here was to present both sides, administration and user, so that you can get general idea 
+				My main goal here is to present both sides, administration and user, so that you can get a general idea on 
 				how the application works.
 				<br/><br/>
 				Have fun using it!
@@ -37,7 +37,7 @@
 				<div class="quoteBox-1">
 					<div class="quoteBox-2">
 						<p>
-						Welcome to admin panel. Here you are able to set all options regarding admin side of system.
+						Welcome to admin panel. This is the place where you can set all the options regarding the admin side of the system.
 						</p>
 					</div>
 				</div>

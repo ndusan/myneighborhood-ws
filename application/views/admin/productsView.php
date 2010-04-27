@@ -23,7 +23,7 @@
 									<div class="common_title">
 										<h3><?php echo (isset($product['id']) ? "Edit" : "Add");?> your product</h3>
 										<div class="common_subtitile">
-										Your information entered on registration page
+										Set information about the product
 										</div>
 									</div>
 								</th>
@@ -160,7 +160,7 @@
 				<div class="quoteBox-1">
 					<div class="quoteBox-2">
 						<p>
-						Welcome to admin panel. Here you are able to set all options regarding admin side of system.
+						Welcome to admin panel. This is the place where you can set all the options regarding the admin side of the system.
 						</p>
 					</div>
 				</div>
