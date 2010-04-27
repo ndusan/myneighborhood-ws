@@ -67,7 +67,7 @@
 				<div class="quoteBox-1">
 					<div class="quoteBox-2">
 						<p>
-						Welcome to admin panel. Here you are able to set all options regarding admin side of system.
+						Welcome to admin panel. This is the place where you can set all the options regarding the admin side of the system.
 						</p>
 					</div>
 				</div>

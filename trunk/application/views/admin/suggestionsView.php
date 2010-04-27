@@ -23,7 +23,7 @@
 									<div class="common_title">
 										<h3>Write down</h3>
 										<div class="common_subtitile">
-											We would like to hear your oppinion about this application
+											We would like to hear your opinion about this application
 										</div>
 									</div>
 								</th>
@@ -56,7 +56,7 @@
 				<div class="quoteBox-1">
 					<div class="quoteBox-2">
 						<p>
-						Welcome to admin panel. Here you are able to set all options regarding admin side of system.
+						Welcome to admin panel. This is the place where you can set all the options regarding the admin side of the system.
 						</p>
 					</div>
 				</div>

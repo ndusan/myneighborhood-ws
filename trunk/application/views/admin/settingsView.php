@@ -23,7 +23,7 @@
 									<div class="common_title">
 										<h3>Personal info</h3>
 										<div class="common_subtitile">
-											Your information entered on registration page
+											Set your personal info here
 										</div>
 									</div>
 								</th>
@@ -90,7 +90,7 @@
 									<div class="common_title">
 										<h3>Orders settings</h3>
 										<div class="common_subtitile">
-											Details about how and where to receive made orders
+											Information about the delivery 
 										</div>
 									</div>
 								</th>
@@ -99,7 +99,7 @@
 						<tbody>
 							<tr>
 								<td>
-									<label>Made orders will be stored on:</label>
+									<label>Made orders will be stored in:</label>
 								</td>
 								<td>- system on page <b>"Made orders"</b></td>
 							</tr>
@@ -121,7 +121,7 @@
 				<div class="quoteBox-1">
 					<div class="quoteBox-2">
 						<p>
-						Welcome to admin panel. Here you are able to set all options regarding admin side of system.
+						Welcome to admin panel. This is the place where you can set all the options regarding the admin side of the system.
 						</p>
 					</div>
 				</div>
