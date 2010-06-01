@@ -5,7 +5,10 @@ class LoginController extends Controller{
 	 * Login page
 	 * @return unknown_type
 	 */
-	function index(){}
+	function index(){
+	
+		$this->db->setVisitor($_SERVER);
+	}
 	
 	/**
 	 * Submit login page

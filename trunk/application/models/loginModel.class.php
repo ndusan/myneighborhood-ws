@@ -74,4 +74,19 @@ class LoginModel extends Model{
 		}else return false;
 	}
 	
+	/**
+	 * Log visitor
+	 * @param array $array
+	 * @return boolean
+	 */
+	function setVisitor($array){
+		
+		$query = sprintf("INSERT INTO `visitors` SET `ip`='%s', `client`='%s'",
+						mysql_real_escape_string($array['REMOTE_ADDR']),
+						mysql_real_escape_string($array['HTTP_USER_AGENT'])
+		);
+		mysql_query($query);
+		return true;
+	}
+	
 }
