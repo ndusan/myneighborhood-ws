@@ -81,9 +81,10 @@ class LoginModel extends Model{
 	 */
 	function setVisitor($array){
 		
-		$query = sprintf("INSERT INTO `visitors` SET `ip`='%s', `client`='%s'",
+		$query = sprintf("INSERT INTO `visitors` SET `ip`='%s', `client`='%s', `subdomain`='%s'",
 						mysql_real_escape_string($array['REMOTE_ADDR']),
-						mysql_real_escape_string($array['HTTP_USER_AGENT'])
+						mysql_real_escape_string($array['HTTP_USER_AGENT']),
+						'webshop'
 		);
 		mysql_query($query);
 		return true;
