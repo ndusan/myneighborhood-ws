@@ -129,6 +129,60 @@
 				</div>
 			</div>
 		</div>
-		
+		<div id="ie6fix" style="display: none; position: absolute; top: 0px; left: 0px; width: 100%; height: 1000px; background-color: #E8EBEC; z-index: 1000;">
+			<div style="margin: 0 auto; width: 550px; margin-top: 100px;">
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<td colspan="2">
+							<h2>Please, upgrade your browser to be able to visit this page!</h2>
+							<h4>Here are links to new version of different browsers:</h4>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Firefox:</td>
+							<td>
+								<a href="http://www.mozilla.com/en-US/firefox/upgrade.html" target="_blank">
+									http://www.mozilla.com
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>Internet Explorer:</td>
+							<td>
+								<a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target="_blank">
+									http://www.microsoft.com
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>Chrome</td>
+							<td>
+								<a href="http://www.google.com/chrome" target="_blank">
+									http://www.google.com
+								</a>	
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2" align="right">
+								<br/>
+								<h3>Thanks!</h3>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+		<!--[if lt IE 7]>
+			<script type="text/javascript" charset="utf-8">
+				$(document).ready(function(){
+					$("#ie6fix").show();
+				});
+			</script>
+		<![endif]-->
 	</body>
 </html>
