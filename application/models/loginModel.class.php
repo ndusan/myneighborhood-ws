@@ -90,4 +90,15 @@ class LoginModel extends Model{
 		return true;
 	}
 	
+	function getLastFour(){
+		$query = sprintf("SELECT * FROM `users` ORDER BY `id` DESC LIMIT 0, 4");
+		$res = mysql_query($query);
+		$output = array();
+		
+		if(mysql_num_rows($res) <= 0) return false;
+		
+		while($row = mysql_fetch_assoc($res)) $output[] = $row;
+		return $output;
+	}
+	
 }

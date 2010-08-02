@@ -8,6 +8,10 @@ class LoginController extends Controller{
 	function index(){
 	
 		$this->db->setVisitor($_SERVER);
+		
+		//Get last 4 users
+		$last = $this->db->getLastFour();
+		parent::set('last', $last);
 	}
 	
 	/**

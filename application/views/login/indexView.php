@@ -52,6 +52,19 @@
 					</div>
 				</div>
 			</div>
+			<div class="quoteAuthor">
+				<p class="name">Last four registered are...</p>
+				<p class="details">
+				<?php if(isset($last) && !empty($last)):?>
+				<?php foreach($last as $l):?>
+				<br/>
+				<?php echo $l['firstname']. " ". $l['lastname']." [". $l['email'] ."]";?>
+				<?php endforeach;?>
+				<?php endif;?>
+				<br/>
+				....
+				</p>
+			</div>
 			<div class="quote">
 				<div class="quoteBox-1">
 					<div class="quoteBox-2">
